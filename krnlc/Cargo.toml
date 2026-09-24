@@ -31,7 +31,7 @@ serde = { version = "1.0.143", default-features = false, features = ["derive"] }
 bincode2 = "2.0.1"
 symlink = "0.1.0"
 rspirv = "0.11.0"
-spirv-tools = { version = "0.9.0", default-features = false }
+spirv-tools = { version = "0.13.0", default-features = false }
 itertools = "0.10.5"
 rayon = "1.7.0"
 flate2 = "1.0.25"
