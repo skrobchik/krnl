@@ -8,7 +8,7 @@ use fxhash::{FxHashMap, FxHashSet};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use semver::Version;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
-use spirv_builder::{MetadataPrintout, ShaderPanicStrategy, SpirvBuilder, SpirvMetadata};
+use spirv_builder::{ShaderPanicStrategy, SpirvBuilder, SpirvMetadata};
 use std::{
     fmt::{self, Debug},
     path::{Path, PathBuf},
@@ -626,8 +626,7 @@ crate-type = ["dylib"]
         std::fs::create_dir_all(&kernels_dir)?;
     }
     let mut builder = SpirvBuilder::new(&device_crate_dir, "spirv-unknown-vulkan1.2")
-        .spirv_metadata(SpirvMetadata::NameVariables)
-        .print_metadata(MetadataPrintout::None);
+        .spirv_metadata(SpirvMetadata::NameVariables);
     if debug_printf {
         builder = builder
             .extension("SPV_KHR_non_semantic_info")
