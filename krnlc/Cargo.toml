@@ -17,8 +17,9 @@ autotests = false
 autobenches = false
 
 [build-dependencies]
-rustversion = "1.0.12"
-vergen = { version = "8.2.6", features = ["git", "gitcl"] }
+rustversion = "1.0.23"
+vergen = { version = "10.0.3" }
+vergen-gitcl = {  version = "10.0.3" }
 
 [dependencies]
 clap = { version = "4.2.4", features = ["derive"] }

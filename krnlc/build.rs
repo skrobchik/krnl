@@ -8,7 +8,8 @@ use std::{
     process::Command,
 };
 
-#[rustversion::not(nightly(2026-04-11))]
+// toolchain nightly-2026-04-11 actually install rustc nightly 2026-04-10
+#[rustversion::not(nightly(2026-04-10))]
 compile_error!(
     "krnlc requires nightly-2026-04-11, install with rustup:
 rustup toolchain install nightly-2026-04-11
@@ -55,9 +56,6 @@ fn main() {
     }
     {
         let short = true;
-        vergen::EmitBuilder::builder()
-            .git_sha(short)
-            .emit()
-            .unwrap();
+        vergen::Emitter::default().add_instructions(&vergen_gitcl::Gitcl::builder().sha(short).build()).unwrap().emit().unwrap();
     }
 }
