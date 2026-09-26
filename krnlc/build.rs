@@ -8,12 +8,12 @@ use std::{
     process::Command,
 };
 
-// toolchain nightly-2026-04-11 actually install rustc nightly 2026-04-10
-#[rustversion::not(nightly(2026-04-10))]
+// rust toolchain is 2026-07-03, but the installed rustc is actually 2026-07-02 
+#[rustversion::not(nightly(2026-07-02))]
 compile_error!(
-    "krnlc requires nightly-2026-04-11, install with rustup:
-rustup toolchain install nightly-2026-04-11
-rustup component add --toolchain nightly-2026-04-11 rust-src rustc-dev llvm-tools-preview"
+    "krnlc requires nightly-2026-07-03, install with rustup:
+rustup toolchain install nightly-2026-07-03
+rustup component add --toolchain nightly-2026-07-03 rust-src rustc-dev llvm-tools-preview"
 );
 
 fn main() {
