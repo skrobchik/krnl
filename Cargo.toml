@@ -1,5 +1,5 @@
 [workspace]
-members = ["benches/*", "tests/*"]
+members = ["benches/*", "tests/*", "examples/vector_sum"]
 
 [workspace.package]
 version = "0.1.2-alpha"
