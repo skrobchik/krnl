@@ -14,8 +14,8 @@ mod kernels {
 
 
 fn main() -> Result<(), Box<dyn std::error::Error>>{
-    let a = vec![1f32];
-    let b = vec![2f32];
+    let a = vec![1f32; 10];
+    let b = vec![2f32; 10];
     let device = Device::builder().build()?;
     let a = Buffer::from(a).into_device(device.clone())?;
     let mut b = Buffer::from(b).into_device(device.clone())?;
