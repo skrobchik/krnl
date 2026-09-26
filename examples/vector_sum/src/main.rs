@@ -8,7 +8,7 @@ mod kernels {
 
     #[kernel]
     pub fn vector_sum(#[item] a: f32, #[item] b: &mut f32) {
-        a + b
+        *b += a
     }
 }
 
