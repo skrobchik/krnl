@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-krnl = { workspace=true }
+krnl = { workspace=true, features=["device"] }
