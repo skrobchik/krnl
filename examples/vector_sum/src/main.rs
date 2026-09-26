@@ -1,4 +1,4 @@
-use krnl::macros::module;
+use krnl::{buffer::Buffer, device::Device, macros::module};
 
 #[module]
 mod kernels {
@@ -13,6 +13,14 @@ mod kernels {
 }
 
 
-fn main() {
-
+fn main() -> Result<(), Box<dyn std::error::Error>>{
+    let a = vec![1f32];
+    let b = vec![2f32];
+    let device = Device::builder().build()?;
+    let a = Buffer::from(a).into_device(device.clone())?;
+    let mut b = Buffer::from(b).into_device(device.clone())?;
+    kernels::vector_sum::builder()?.build(device)?.dispatch(a.as_slice(), b.as_slice_mut())?;
+    let b = b.into_vec()?;
+    println!("{b:?}");
+    Ok(())
 }
